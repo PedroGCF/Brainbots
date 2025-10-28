@@ -1,0 +1,67 @@
+=== Git Cheat Sheet — Tudo que você precisa para Arduino ===
+
+# 1️⃣ Inicializar repositório
+
+* `git init` → cria um repositório Git local na pasta atual.
+* `git status` → mostra o estado atual do repositório (arquivos modificados, não rastreados, etc).
+
+# 2️⃣ Adicionar mudanças
+
+* `git add arquivo.ext` → adiciona um arquivo específico para o próximo commit.
+* `git add .` → adiciona **todas as mudanças** (novos arquivos e modificações).
+* `git add -A` → adiciona todas as mudanças, incluindo renomeações e exclusões.
+
+# 3️⃣ Criar commit
+
+* `git commit -m "mensagem"` → salva as mudanças no histórico.
+* Mensagem curta e clara, ex: `feat: adicionar controle PID`.
+
+# 4️⃣ Enviar para GitHub
+
+* `git remote add origin URL_do_repositorio` → conecta o repositório local ao GitHub.
+* `git branch -M main` → define a branch principal como main.
+* `git push -u origin main` → envia as alterações pro GitHub.
+* `git push` → envia alterações subsequentes.
+
+# 5️⃣ Atualizar repositório local
+
+* `git pull` → baixa alterações do GitHub para o seu computador.
+
+# 6️⃣ Renomear arquivos
+
+* `git mv antigo_nome.ino novo_nome.ino` → renomeia e mantém histórico.
+* Se renomeou manualmente:
+
+  * `git add novo_nome.ino`
+  * `git rm antigo_nome.ino`
+  * `git commit -m "rename: antigo_nome para novo_nome"`
+
+# 7️⃣ Excluir arquivos
+
+* `git rm arquivo.ext` → remove do Git e do disco.
+* `git rm --cached arquivo.ext` → remove do Git, mas mantém no disco.
+
+# 8️⃣ Voltar versões / desfazer
+
+* `git reset --soft HEAD~1` → desfaz o último commit, mantém mudanças.
+* `git reset --hard HEAD~1` → desfaz o último commit e descarta mudanças.
+* `git checkout nome_arquivo.ext` → desfaz alterações de um arquivo específico.
+
+# 9️⃣ Trabalhar com branches
+
+* `git branch` → lista as branches.
+* `git branch nome_branch` → cria uma branch.
+* `git checkout nome_branch` → muda para outra branch.
+* `git merge nome_branch` → junta branch no atual.
+
+# 🔥 Dicas práticas para Arduino
+
+* Sempre organize arquivos em pastas (`src/`, `docs/`, `old/`).
+* Use commits só para mudanças significativas: novos recursos, renomeações, correções.
+* Para renomear vários arquivos: `git add -A && git commit -m "rename files"`
+* Antes de começar a mexer, faça `git pull` para evitar conflitos.
+* Para conferir tudo que mudou antes de commit: `git status` e `git diff`.
+
+---
+
+Git é sobre **salvar mudanças e manter histórico**. Qualquer mudança que você quiser ver no GitHub **precisa estar em um commit**.
